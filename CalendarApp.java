@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-
 abstract class Event {
     private String date;
     private String description;
@@ -25,22 +24,18 @@ abstract class Event {
     public void setDescription(String description) {
         this.description = description;
     }
-
-    // You can add more methods or abstract methods specific to events here.
 }
 
 class SimpleEvent extends Event {
     public SimpleEvent(String date, String description) {
         super(date, description);
     }
-
-    // Implement any specific methods or behavior for simple events here.
 }
 
 public class CalendarApp {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Map<String, List<Event>> eventsMap = new HashMap();
+        Map<String, List<Event> > eventsMap = new HashMap<>();
 
         while (true) {
             System.out.println("Calendar Application");
@@ -88,7 +83,7 @@ public class CalendarApp {
                     }
                     break;
                 case 3:
-                     System.out.print("Enter date (yyyy-MM-dd) to edit events: ");
+                    System.out.print("Enter date (yyyy-MM-dd) to edit events: ");
                     String editDate = scanner.nextLine();
                     List<Event> editEvents = eventsMap.get(editDate);
 
@@ -115,7 +110,6 @@ public class CalendarApp {
                     }
                     break;
                 case 4:
-                
                     System.out.print("Enter date (yyyy-MM-dd) to delete events: ");
                     String deleteDate = scanner.nextLine();
                     List<Event> deleteEvents = eventsMap.get(deleteDate);
@@ -150,7 +144,6 @@ public class CalendarApp {
             }
         }
     }
-}
 
     private static boolean isValidDateFormat(String date) {
         if (date.length() != 10) {
@@ -170,4 +163,3 @@ public class CalendarApp {
         }
         return true;
     }
-}
